@@ -18,13 +18,8 @@ Resources:
                     SAM_MULTIPLIER: !Ref SamMultipler
                     ORIGIN_URL: !Ref OriginUrl
             Events:
-              FileUploaded:
-                Type: S3
+              GetResource:
+                Type: Api
                 Properties:
-                  Bucket: 
-                    Ref: SrcBucket
-                  Events: s3:ObjectCreated:Put
-    SrcBucket:
-        Type: AWS::S3::Bucket
-        Properties: 
-            BucketName: testbucket8568
+                  Path: /sam
+                  Method: get
