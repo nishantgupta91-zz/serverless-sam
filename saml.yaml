@@ -23,3 +23,13 @@ Resources:
                 Properties:
                   Path: /sam
                   Method: get
+              FileUploaded:
+                Type: S3
+                Properties:
+                  Bucket: 
+                    Ref: SrcBucket
+                  Events: s3:ObjectCreated:Put
+    SrcBucket:
+        Type: AWS::S3::Bucket
+        Properties: 
+            BucketName: testbucket8568
